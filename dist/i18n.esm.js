@@ -38,7 +38,7 @@ class I18n {
             if (Object.hasOwnProperty.call(replaces, find)) {
                 const replace = replaces[find];
                 const findLiquid = `{{ ${find} }}`;
-                resultString = resultString.replace(findLiquid, replace);
+                resultString = resultString.replaceAll(findLiquid, replace);
             }
         }
         return resultString;

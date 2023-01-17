@@ -5,7 +5,11 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "lib": [
+      "ES2021.String",
+      "dom"
+    ]
   },
   "include": ["./src/**/*.ts"]
 }

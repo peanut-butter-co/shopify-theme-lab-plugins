@@ -50,7 +50,7 @@ export class I18n {
         const replace = replaces[find];
         const findLiquid = `{{ ${find} }}`;
 
-        resultString = resultString.replace(findLiquid, replace);
+        resultString = resultString.replaceAll(findLiquid, replace);
       }
     }
 

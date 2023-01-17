@@ -32,17 +32,28 @@ export class I18n {
     return translations
   }
 
-  $t (payload: string): string | undefined {
+  $t (payload: string, replaces: TranslationReplaces): string | undefined {
     let result: string | Translations = this.translations[this.locale]
-
+    let resultString: string
+  
     payload
       .split(/\.|\//g)
       .forEach(el => {
         if (typeof result !== 'string') result = result[el]
       })
 
-    return typeof result === 'string'
-      ? result
-      : undefined
+    if (typeof result !== 'string') return undefined;
+      
+    resultString = result
+    for (const find in replaces) {
+      if (Object.hasOwnProperty.call(replaces, find)) {
+        const replace = replaces[find];
+        const findLiquid = `{{ ${find} }}`;
+
+        resultString = resultString.replace(findLiquid, replace);
+      }
+    }
+
+    return resultString;
   }
 }

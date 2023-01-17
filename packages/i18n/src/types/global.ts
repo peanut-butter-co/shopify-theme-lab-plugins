@@ -15,3 +15,7 @@ interface Translations {
 interface AllTranslations {
   [key: string]: Translations
 }
+
+interface TranslationReplaces {
+  [key: string]: string
+}

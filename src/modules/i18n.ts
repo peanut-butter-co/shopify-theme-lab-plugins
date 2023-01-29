@@ -10,6 +10,12 @@ export class I18n {
 
   constructor (options?: I18nOptions) {
     this.locale = window.Shopify.locale || options?.fallbackLocale || 'en'
+    if (window.Shopify.Checkout?.locale) {
+      this.locale = window.Shopify.Checkout?.locale.split('-')[0]
+    } else {
+        this.locale = window.Shopify.locale || options?.fallbackLocale || 'en';
+    }
+    
     this.translations = this._loadTranslations()
     this.$t = this.$t.bind(this)
   }

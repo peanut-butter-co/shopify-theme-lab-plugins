@@ -1,7 +1,10 @@
 interface Window {
   Shopify: {
     locale: string
-  }
+    Checkout: {
+      locale: string
+    }
+  },
 }
 
 interface I18nOptions {
